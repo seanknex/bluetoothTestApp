@@ -52,10 +52,18 @@
 			[transferOutlet setTitle:@"Stop" forState:UIControlStateNormal];
 			activityView.hidden = FALSE;
 			[activityView startAnimating];
+			[self performSelector:@selector(resetView) withObject:nil afterDelay:[player duration]];
 		}
 		
 	}
 	
+}
+
+-(void)resetView{
+	[player stop];
+	[activityView stopAnimating];
+	activityView.hidden = TRUE;
+	[transferOutlet setTitle:@"Play" forState:UIControlStateNormal];
 }
 
 @end

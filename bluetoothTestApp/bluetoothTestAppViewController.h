@@ -22,4 +22,6 @@
 @property (strong, nonatomic) AVAudioPlayer *player;
 @property (strong, nonatomic) NSURL	*playerURL;
 
+-(void)resetView;
+
 @end
