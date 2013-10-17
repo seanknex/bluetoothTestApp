@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <CoreAudio/CoreAudioTypes.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface bluetoothTestAppViewController : UIViewController
+@interface bluetoothTestAppViewController : UIViewController{
+	IBOutlet UIActivityIndicatorView *activityView;
+	IBOutlet UIButton *transferOutlet;
+}
+
+- (IBAction)initiateTransfer:(id)sender;
+
+@property (nonatomic, retain) AVAudioSession *audioSession;
+@property (strong, nonatomic) AVAudioPlayer *player;
+@property (strong, nonatomic) NSURL	*playerURL;
 
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1863E1861810379100BDA149 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1863E1851810379100BDA149 /* CoreAudio.framework */; };
+		1863E1881810379800BDA149 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1863E1871810379800BDA149 /* CoreData.framework */; };
+		1863E18A181037A600BDA149 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1863E189181037A600BDA149 /* AVFoundation.framework */; };
+		1863E18C181037AF00BDA149 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1863E18B181037AF00BDA149 /* AudioToolbox.framework */; };
 		18C61A77180DAF70008B14D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C61A76180DAF70008B14D6 /* Foundation.framework */; };
 		18C61A79180DAF70008B14D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C61A78180DAF70008B14D6 /* CoreGraphics.framework */; };
 		18C61A7B180DAF70008B14D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C61A7A180DAF70008B14D6 /* UIKit.framework */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1863E1851810379100BDA149 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		1863E1871810379800BDA149 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1863E189181037A600BDA149 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1863E18B181037AF00BDA149 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		18C61A73180DAF70008B14D6 /* bluetoothTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bluetoothTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C61A76180DAF70008B14D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18C61A78180DAF70008B14D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,7 +68,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1863E18C181037AF00BDA149 /* AudioToolbox.framework in Frameworks */,
+				1863E18A181037A600BDA149 /* AVFoundation.framework in Frameworks */,
 				18C61A79180DAF70008B14D6 /* CoreGraphics.framework in Frameworks */,
+				1863E1881810379800BDA149 /* CoreData.framework in Frameworks */,
+				1863E1861810379100BDA149 /* CoreAudio.framework in Frameworks */,
 				18C61A7B180DAF70008B14D6 /* UIKit.framework in Frameworks */,
 				18C61A77180DAF70008B14D6 /* Foundation.framework in Frameworks */,
 			);
@@ -101,6 +113,10 @@
 		18C61A75180DAF70008B14D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1863E18B181037AF00BDA149 /* AudioToolbox.framework */,
+				1863E189181037A600BDA149 /* AVFoundation.framework */,
+				1863E1871810379800BDA149 /* CoreData.framework */,
+				1863E1851810379100BDA149 /* CoreAudio.framework */,
 				18C61A76180DAF70008B14D6 /* Foundation.framework */,
 				18C61A78180DAF70008B14D6 /* CoreGraphics.framework */,
 				18C61A7A180DAF70008B14D6 /* UIKit.framework */,
@@ -461,6 +477,7 @@
 				18C61AA7180DAF70008B14D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18C61AA8180DAF70008B14D6 /* Build configuration list for PBXNativeTarget "bluetoothTestAppTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +486,7 @@
 				18C61AAA180DAF70008B14D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
