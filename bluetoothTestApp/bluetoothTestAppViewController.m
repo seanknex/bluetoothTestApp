@@ -20,10 +20,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
+	NSError *error;
+	
 	audioSession = [AVAudioSession sharedInstance];
-	[audioSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
-	//[audioSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:nil];
+	//[audioSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
+	[audioSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:&error];
+	if (error) NSLog(@"Error in Setting Audio Session Category");
 	[audioSession setActive:YES error:nil];
+	if (error) NSLog(@"Error in Setting Audio Session Active");
 	
 	activityView.hidden = TRUE;
 	NSString *playerString = [[NSBundle mainBundle]pathForResource:@"Breathing" ofType:@"mp3"];
