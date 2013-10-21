@@ -34,10 +34,26 @@
                                 <rect key="frame" x="150" y="241" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdr-BW-3fZ">
+                                <rect key="frame" x="135" y="307" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Gtq-rX-Ax3"/>
+                                    <constraint firstAttribute="width" constant="50" id="WGg-rb-l0W"/>
+                                </constraints>
+                                <state key="normal" title="Record">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="record:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xwl-wO-bpT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qdr-BW-3fZ" firstAttribute="top" secondItem="ACX-r5-sw3" secondAttribute="bottom" constant="8" id="5C1-Be-aS1"/>
                             <constraint firstItem="ACX-r5-sw3" firstAttribute="top" secondItem="wuH-Bc-RIM" secondAttribute="bottom" constant="8" id="Co9-Kf-BEl"/>
+                            <constraint firstAttribute="centerX" secondItem="qdr-BW-3fZ" secondAttribute="centerX" id="L2e-LO-Wuk"/>
                             <constraint firstAttribute="centerX" secondItem="wuH-Bc-RIM" secondAttribute="centerX" id="MZY-rh-zfo"/>
                             <constraint firstAttribute="centerX" secondItem="ACX-r5-sw3" secondAttribute="centerX" id="iWe-8r-j4D"/>
                             <constraint firstAttribute="centerY" secondItem="ACX-r5-sw3" secondAttribute="centerY" id="wQR-ng-dRy"/>
@@ -45,6 +61,7 @@
                     </view>
                     <connections>
                         <outlet property="activityView" destination="wuH-Bc-RIM" id="cT7-4H-X6g"/>
+                        <outlet property="recordOutlet" destination="qdr-BW-3fZ" id="XnK-eT-d4i"/>
                         <outlet property="transferOutlet" destination="ACX-r5-sw3" id="qZZ-6e-H05"/>
                     </connections>
                 </viewController>

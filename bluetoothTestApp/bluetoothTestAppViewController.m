@@ -13,7 +13,7 @@
 @end
 
 @implementation bluetoothTestAppViewController
-@synthesize audioSession, player, playerURL;
+@synthesize audioSession, player, playerURL, recorder;
 
 - (void)viewDidLoad
 {
@@ -28,10 +28,10 @@
 	if (error) NSLog(@"Error in Setting Audio Session Category");
 	[audioSession setActive:YES error:nil];
 	if (error) NSLog(@"Error in Setting Audio Session Active");
-	
 	activityView.hidden = TRUE;
 	NSString *playerString = [[NSBundle mainBundle]pathForResource:@"Breathing" ofType:@"mp3"];
 	playerURL = [NSURL fileURLWithPath:playerString];
+	 
 	
 }
 
@@ -49,8 +49,12 @@
 		activityView.hidden = TRUE;
 	}
 	else{
+		[audioSession overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+		player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"VoiceFile"]]] error:nil];
+		if (player.duration < 1) {
+			player = [[AVAudioPlayer alloc] initWithContentsOfURL:playerURL error:nil];
+		}
 		
-		player = [[AVAudioPlayer alloc] initWithContentsOfURL:playerURL error:nil];
 		[player play];
 		if ([player isPlaying]) {
 			[transferOutlet setTitle:@"Stop" forState:UIControlStateNormal];
@@ -63,8 +67,36 @@
 	
 }
 
+- (IBAction)record:(id)sender {
+	
+	if (![recorder isRecording]) {
+		NSError *error = [[NSError alloc] init];
+		for (AVAudioSessionPortDescription *mDes in audioSession.availableInputs){
+			if ([mDes.portType isEqualToString:AVAudioSessionPortBluetoothA2DP] || [mDes.portType isEqualToString:AVAudioSessionPortBluetoothHFP]) {
+				[audioSession setPreferredInput:mDes error:&error];
+			}
+		}
+		
+		recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"VoiceFile"]]] settings:nil error:nil];
+		[recorder setDelegate:self];
+		[recorder prepareToRecord];
+		[recorder record];
+		activityView.hidden = FALSE;
+		[activityView startAnimating];
+		[recordOutlet setTitle:@"Stop" forState:UIControlStateNormal];
+	}
+	else{
+		[recorder stop];
+		activityView.hidden = TRUE;
+		[activityView stopAnimating];
+		[recordOutlet setTitle:@"Record" forState:UIControlStateNormal];
+	}
+	
+}
+
 -(void)resetView{
 	[player stop];
+	
 	[activityView stopAnimating];
 	activityView.hidden = TRUE;
 	[transferOutlet setTitle:@"Play" forState:UIControlStateNormal];
